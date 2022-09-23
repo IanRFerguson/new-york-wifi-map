@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+
+    <div class="hotspot_map">
+        <iframe src="{{ url_for('hotspots') }}"></iframe>
+    </div>
+
+    {% endblock %}
+</body>

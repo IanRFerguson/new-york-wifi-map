@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" 
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+              integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+              crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" 
+              href="static/main.css">
+
+        <!-- Icon -->
+        <link>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                NYC Wifi Hotspots
+            </a>
+            <a class="navbar-link" href="{{ url_for('add') }}">
+                Add Hotspot  
+            </a>
+            <a class="navbar-link" href="{{ url_for('view') }}">
+                View Hotspots
+            </a>
+            
+        </nav>
+
+        <!-- Page Content -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- Handle messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ messsage }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </body>
+</html>

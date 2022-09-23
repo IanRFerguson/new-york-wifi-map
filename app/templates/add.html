@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+
+    <form action="{{ url_for('add') }}" method="POST" class="intake_form">
+        <label for="venue_name">
+            Venue Name
+        </label>
+        <br>
+        <input type="text" id="venue_name" name="venue_name">
+        <br><br>
+        
+        <label for="street_address">
+            Street Address
+        </label>
+        <br>
+        <input type="text" id="street_address" name="street_address">
+        <br><br>
+
+        <label for="city">
+            City
+        </label>
+        <br>
+        <input type="text" id="city" name="city">
+        <br><br>
+
+        <label for="venue_type">
+            Venue Type
+        </label>
+        <br> <br>
+        <input type="radio" id="coffee" name="venue_type" value="coffee">
+        <label for="coffee">Coffee Shop</label>
+        <br>
+        <input type="radio" id="bar" name="venue_type" value="bar">
+        <label for="bar">Bar / Restaurant</label>
+        <br>
+        <input type="radio" id="hotel" name="venue_type" value="hotel">
+        <label for="hotel">Hotel Lobby</label>
+        <br>
+        <input type="radio" id="other" name="venue_type" value="other">
+        <label for="other">Other</label>
+        <br><br>
+
+        <label for="submitted_by">
+            Submitted By (Optional)
+        </label>
+        <br>
+        <input type="text" id="submitted_by" name="submitted_by">
+        <br><br>
+
+        <label for="comments">
+            Comments (Optional)
+        </label>
+        <br>
+        <input type="text" id="comments" name="comments">
+        <br><br>
+
+
+        <input type="submit">
+    </form>
+
+    {% endblock %}
+</body>

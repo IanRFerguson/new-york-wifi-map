@@ -1,0 +1,19 @@
+/* Main CSS */
+
+body {
+    font-family: monospace;
+    width: 960px;
+    margin: 0 auto;
+}
+
+
+.hotspot_map iframe {
+    width: 80%;
+    height: 80%;
+}
+
+
+.navbar-link {
+    padding: 0% 5%;
+    color: black;
+}
