@@ -9,5 +9,6 @@ CREATE TABLE nyc (
     label TEXT NOT NULL,
     venue_type TEXT NOT NULL DEFAULT coffee,
     submitted_by TEXT DEFAULT NULL,
-    comments TEXT DEFAULT NULL
+    comments TEXT DEFAULT NULL,
+    upvotes INTEGER DEFAULT 0
 );
