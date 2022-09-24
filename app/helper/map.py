@@ -1,9 +1,10 @@
 #!/bin/python3
-from .db import read_db
-import urllib, requests, os
-import folium
+import folium, os, sqlite3
+import pandas as pd
+
 
 ##########
+
 
 class MapHandler:
     """
@@ -13,8 +14,24 @@ class MapHandler:
 
     def __init__(self, output_path: os.path = "./app/templates/hotspots.html"):
         self.coords = [40.7128, -74.006]
-        self.data_store = read_db()
+        self.data_store = self.read_db()
         self.output_path = output_path
+
+
+
+    def read_db(self):
+        """
+        Reads in all values from local DB
+        """
+
+        with sqlite3.connect("./app/nyc.db") as connection:
+            df = pd.read_sql_query(
+                sql="select * from nyc;",
+                con=connection
+            )
+
+        return df
+
 
 
     def build_map(self):
@@ -32,8 +49,8 @@ class MapHandler:
         for ix, label in enumerate(self.data_store["label"]):
             folium.Marker(
                 location=[
-                    self.data_store["latitude"][ix],
-                    self.data_store["longitude"][ix]
+                    self.data_store["longitude"][ix],
+                    self.data_store["latitude"][ix]
                 ],
                 popup=label
             ).add_to(nyc_map)
