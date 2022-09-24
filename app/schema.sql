@@ -7,6 +7,7 @@ CREATE TABLE nyc (
     latitude TEXT NOT NULL,
     longitude TEXT NOT NULL,
     label TEXT NOT NULL,
-    submitted_by TEXT,
-    comments TEXT
+    venue_type TEXT NOT NULL DEFAULT coffee,
+    submitted_by TEXT DEFAULT NULL,
+    comments TEXT DEFAULT NULL
 );
