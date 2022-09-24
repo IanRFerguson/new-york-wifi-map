@@ -47,12 +47,26 @@ class MapHandler:
 
         # Loop through and drop pins
         for ix, label in enumerate(self.data_store["label"]):
+
+            full_label = f"<b>{label}</b><br>{self.data_store['address'][ix]}".title()
+            venue_type = self.data_store["venue_type"][ix]
+
+            if venue_type == "COFFEE":
+                color="blue"
+
+            elif venue_type == "HOTEL":
+                color="red"
+
+            else:
+                color="green"
+
             folium.Marker(
                 location=[
                     self.data_store["longitude"][ix],
                     self.data_store["latitude"][ix]
                 ],
-                popup=label
+                popup=full_label.replace("Ny", "NY"),
+                icon=folium.Icon(color=color)
             ).add_to(nyc_map)
 
 
