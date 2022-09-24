@@ -4,6 +4,7 @@ body {
     font-family: monospace;
     width: 960px;
     margin: 0 auto;
+    text-align: center;
 }
 
 
@@ -16,4 +17,18 @@ body {
 .navbar-link {
     padding: 0% 5%;
     color: black;
+}
+
+
+.add_box {
+    padding: 2.5% 0;
+}
+
+.add_box input {
+    padding: 8px;
+}
+
+
+.view_box {
+    padding: 3% 0;
 }

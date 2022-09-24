@@ -3,20 +3,23 @@
 <body>
     {% block content %}
 
-        <a href="{{ url_for('download_csv') }}">
-            <h4>Download Hotspot CSV</h4>
-        </a>
+        <div class="view_box">
+            <a href="{{ url_for('download_csv') }}">
+                <h4>Download Hotspot CSV</h4>
+            </a>
+        </div>
 
-        <table class="table table-hover">
-            <thead>
-                <th>Created</th>
-                <th>Location</th>
-                <th>Address</th>
-                <th>Submitted By</th>
-                <th>Comments</th>
-            </thead>
-            <tbody>
-                {% for row in data %}
+        <div class="view_box">
+            <table class="table table-hover">
+                <thead>
+                    <th>Created</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Submitted By</th>
+                    <th>Comments</th>
+                </thead>
+                <tbody>
+                    {% for row in data %}
                     <tr>
                         <td>{{ row[1] }}</td>
                         <td>{{ row[6] }}</td>
@@ -24,10 +27,10 @@
                         <td>{{ row[-2] }}</td>
                         <td>{{ row[-1] }}</td>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     {% endblock %}
 </body>
