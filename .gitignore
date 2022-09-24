@@ -1,2 +1,4 @@
 *__pycache__*
 *.ipynb
+nyc.db
+app/templates/hotspots.html
