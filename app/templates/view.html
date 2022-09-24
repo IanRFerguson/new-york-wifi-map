@@ -3,28 +3,31 @@
 <body>
     {% block content %}
 
-        {% if data %}
-            <table class="table table-hover">
-                <thead>
-                    <th>Created</th>
-                    <th>Location</th>
-                    <th>Address</th>
-                    <th>Submitted By</th>
-                    <th>Comments</th>
-                </thead>
-                <tbody>
-                    {% for row in data %}
+        <a href="{{ url_for('download_csv') }}">
+            <h4>Download Hotspot CSV</h4>
+        </a>
+
+        <table class="table table-hover">
+            <thead>
+                <th>Created</th>
+                <th>Location</th>
+                <th>Address</th>
+                <th>Submitted By</th>
+                <th>Comments</th>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
                         <td>{{ row[1] }}</td>
                         <td>{{ row[6] }}</td>
                         <td>{{ row[2] }}</td>
-                        <td>{{ row[7] }}</td>
-                        <td>{{ row[8] }}</td>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <h2>Nothing to see yet!</h2>
-        {% endif %}
+                        <td>{{ row[-2] }}</td>
+                        <td>{{ row[-1] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
 
     {% endblock %}
 </body>
