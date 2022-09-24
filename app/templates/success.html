@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+
+    <h2>Nice one!</h2>
+
+    <h4>
+        {{ address }} has been successfully logged
+    </h4>
+
+    <a href="{{ url_for('index')}}">
+        <h4>Return to Main</h4>
+    </a>
+
+    {% endblock %}
+</body>
