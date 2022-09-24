@@ -89,21 +89,15 @@ def hotspots():
 def download_csv():
     data = read_db()
 
-    output_path = os.path.join("./.temp_cache")
+    here = pathlib.Path(__file__).parent
+
+    output_path = os.path.join(here, ".temp_cache")
     pathlib.Path(output_path).mkdir(parents=True, exist_ok=True)
 
     data.to_csv(
         os.path.join(output_path, "NYC_WIFI_HOTSPOTS.csv"),
         index=False
     )
-
-
-    @after_this_request
-    def remove_output(response_):
-        os.remove(
-            os.path.join(output_path, "NYC_WIFI_HOTSPOTS.csv")
-        )
-
 
     return send_file(
         os.path.join(output_path, "NYC_WIFI_HOTSPOTS.csv"),
