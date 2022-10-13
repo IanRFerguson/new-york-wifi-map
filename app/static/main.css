@@ -21,11 +21,13 @@ body {
 
 
 .add_box {
-    padding: 2.5% 0;
+    padding: 1%;
+    padding-top: 0;;
+    padding-bottom: 2.5%;
 }
 
 .add_box input {
-    padding: 8px;
+    padding: 5px;
 }
 
 
