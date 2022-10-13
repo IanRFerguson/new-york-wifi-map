@@ -6,7 +6,8 @@ from flask import (render_template, request,
                    url_for, flash, after_this_request)
 
 from .helper.map import MapHandler
-from .helper.db import (handle_request, init_db, read_db)
+from .helper.db import (handle_request, init_db, 
+                        read_db, update_rank)
 
 
 ##########
@@ -76,6 +77,35 @@ def view():
     data = read_db()
 
     return render_template("view.html", data=data.values.tolist())
+
+
+
+@app.route("/upvote", methods=["GET", "POST"])
+def upvote():
+    data = read_db()
+
+    feed = []
+
+    for ix, label_ in enumerate(data["label"]):
+        clean = f"{label_} - {data['address'][ix]}"
+        feed.append(clean)
+
+
+    if request.method == "POST":
+        choice = request.form["upvote_choice"]
+
+        choice = [x.strip() for x in choice.split("-")]
+
+        print(f"{choice[0]}\t\t{choice[1]}")
+        sleep(10)
+
+        update_rank(choice[0], choice[1])
+
+        flash(f"{choice[0]} updated!")
+
+        return redirect(url_for('index'))
+
+    return render_template("upvote.html", data=feed)
 
 
 

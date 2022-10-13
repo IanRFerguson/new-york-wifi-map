@@ -1,5 +1,5 @@
 #!/bin/python3
-import sqlite3, json, os, requests, urllib, pytz
+import sqlite3, json, os, requests, urllib
 from datetime import datetime
 import pandas as pd
 
@@ -132,3 +132,26 @@ def get_coordinates(address: str) -> tuple:
         return (r[0]['lat'], r[0]['lon'])
     except Exception as e:
         raise e
+
+
+
+def update_rank(label: str, address: str):
+    """
+    NOTE: In development
+
+    Updates SQL table to reflect user upvoting
+    """
+
+    with sqlite3.connect("./app/nyc.db") as connection:
+        cursor = connection.cursor()
+
+        query = f"""
+        UPDATE nyc
+        SET upvotes = upvotes + 1
+        WHERE
+            address = {address}
+        AND
+            label = {label}
+        """
+
+        cursor.execute(query)
