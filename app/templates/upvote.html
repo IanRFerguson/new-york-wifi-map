@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+
+        <form action="{{ url_for('upvote') }}" method="POST">
+            <label for="upvote_choice">The Wifi Here is Good:</label>
+            <br>
+            <select name="upvote_choice" id="upvote_choice">
+                <option value=""></option>
+                {% for val in data %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Upvote">
+        </form>
+
+    {% endblock %}
+</body>

@@ -17,13 +17,15 @@
                     <th>Address</th>
                     <th>Submitted By</th>
                     <th>Comments</th>
+                    <th>Upvotes</th>
                 </thead>
                 <tbody>
                     {% for row in data %}
                     <tr>
                         <td>{{ row[1] }}</td>
-                        <td>{{ row[6] }}</td>
+                        <td>{{ row[5] }}</td>
                         <td>{{ row[2] }}</td>
+                        <td>{{ row[-3] }}</td>
                         <td>{{ row[-2] }}</td>
                         <td>{{ row[-1] }}</td>
                     </tr>
