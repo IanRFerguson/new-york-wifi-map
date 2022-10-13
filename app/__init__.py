@@ -72,7 +72,7 @@ def add():
 
 
 
-@app.route("/view_hotpots", methods=["GET", "POST"])
+@app.route("/view_hotspots", methods=["GET", "POST"])
 def view():
     data = read_db()
 
